@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Produk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+    <h2>Edit Produk</h2>
+    <form action="/admin/edit/{{ product.id }}" method="post">
+        <label for="name">Nama:</label>
+        <input type="text" name="name" id="name" value="{{ product.name }}" required>
+        <br>
+        <label for="stock">Stok:</label>
+        <input type="number" name="stock" id="stock" value="{{ product.stock }}" required>
+        <br>
+        <label for="price">Harga:</label>
+        <input type="number" name="price" id="price" value="{{ product.price }}" step="0.01" required>
+        <br>
+        <label for="whatsapp_link">WhatsApp Link:</label>
+        <input type="text" name="whatsapp_link" id="whatsapp_link" value="{{ product.whatsapp_link }}" required>
+        <br>
+        <label for="image_url">Gambar URL:</label>
+        <input type="text" name="image_url" id="image_url" value="{{ product.image_url }}">
+        <br>
+        <button type="submit">Simpan</button>
+    </form>
+    <a href="/admin/dashboard">Kembali</a>
+</body>
+</html>

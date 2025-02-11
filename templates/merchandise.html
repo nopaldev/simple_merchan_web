@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Merchandise{% endblock %}
+
+{% block content %}
+<div class="merchandise-container">
+    <h1>Produk Kami</h1>
+    <div class="merchandise-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            </div>
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p class="product-stock">Stock: {{ product.stock }}</p>
+                <p class="product-price">Rp {{ "{:,.0f}".format(product.price) }}</p>
+                <a href="{{ product.whatsapp_link }}" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
